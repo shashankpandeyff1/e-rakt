@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Rakt Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@200&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/layout.css">
+    <style media="screen">
+      .box{
+        width: 100%;
+        height:auto;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #e53935;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e53935;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      background-color: #e53935;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c62828;
+    }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <h1>E-Rakt</h1>
+      <ul>
+        <li><a href="/"> Home</a></li>
+        <li> <a href="/contactus"> Contact Us</a></li>
+        <li> <a href="/donors"> Donors</a></li>
+          <li><a href="/beadonor"> Be a donor</a></li>
+          <li><a href="/login"> Login</a></li>
+      </ul>
+    </header>
+<div class="box">
+  <form action="/donorinfo" method="POST">
+    <b style="color:green;">{{msg}}</b>
+  <h3>Donor Information</h3>
+
+  <!-- Full Name -->
+  <label for="full_name">Full Name:</label>
+  <input type="text" id="full_name" name="full_name" required pattern="[A-Za-z\s]{3,50}" title="Only letters allowed, 3-50 characters" value="{{uname}}"><br><br>
+
+  <!-- Age -->
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age" required min="18" max="65" title="Age must be between 18 and 65" value="{{age}}"><br><br>
+
+  <!-- Weight -->
+  <label for="weight">Weight (in kg):</label>
+  <input type="number" id="weight" name="weight" required min="50" title="Minimum weight is 50 kg"><br><br>
+
+
+
+  <!-- Blood Group -->
+  <label for="blood_group">Blood Group:</label>
+  <select name="blood_group" id="blood_group" required>
+    <option value="">-- Select Blood Group --</option>
+    <option value="A+">A+</option>
+    <option value="A-">A−</option>
+    <option value="B+">B+</option>
+    <option value="B-">B−</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB−</option>
+    <option value="O+">O+</option>
+    <option value="O-">O−</option>
+  </select><br><br>
+
+  <!-- Last Donation Date -->
+  <label for="last_donation">Last Donation Date:</label>
+  <input type="date" id="last_donation" name="last_donation"><br><br>
+
+  <!-- Available From -->
+  <label for="available_date">Available to Donate From:</label>
+  <input type="date" id="available_date" name="available_date" required><br><br>
+
+  <!-- Preferred District -->
+  <label for="district">Preferred District:</label>
+  <select name="district " id="district ">
+  <option value="ahmedabad">Ahmedabad</option>
+  <option value="surat">Surat</option>
+  <option value="vadodara">Vadodara</option>
+  <option value="rajkot">Rajkot</option>
+  <option value="bhavnagar">Bhavnagar</option>
+  <option value="jamnagar">Jamnagar</option>
+  <option value="gandhinagar">Gandhinagar</option>
+  <option value="nadiad">Nadiad</option>
+  <option value="junagadh">Junagadh</option>
+  <option value="surendranagar">Surendranagar</option>
+  <option value="veraval">Veraval</option>
+  <option value="bharuch">Bharuch</option>
+  <option value="porbandar">Porbandar</option>
+  <option value="anand">Anand</option>
+  <option value="gandhidham">Gandhidham</option>
+</select>
+
+<br><br>
+
+  <!-- Additional Notes -->
+  <label for="notes">Any Health Notes or Concerns:</label><br>
+  <textarea name="notes" id="notes" rows="4" cols="40" maxlength="500" placeholder="Mention anything we should know (optional)..."></textarea><br><br>
+
+  <!-- Submit -->
+  <button type="submit">Submit</button>
+</form>
+
+</div><br><br><br><br>
+    <footer id="footer">
+      <p>© All Rights Reserved By E-Rakt</p>
+    </footer>
+  </body>
+</html>

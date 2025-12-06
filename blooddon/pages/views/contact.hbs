@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@200&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .contact-box {
+      display: flex;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .contact-image {
+      flex: 1;
+      background: url('/images/blood-drop.png') center center/cover no-repeat;
+      min-height: 400px;
+    }
+
+    .contact-form {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 25px;
+      color: #e53935;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #e53935;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #e53935;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c62828;
+    }
+
+    @media (max-width: 768px) {
+      .contact-box {
+        flex-direction: column;
+      }
+
+      .contact-image {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <h1>E-Rakt</h1>
+    <ul>
+      <li><a href="/"> Home</a></li>
+      <li> <a href="/contactus"> Contact Us</a></li>
+      <li> <a href="/donors"> Donors</a></li>
+        <li><a href="/beadonor"> Be a donor</a></li>
+        <li><a href="/login"> Login</a></li>
+    </ul>
+  </header>
+<div class="container">
+  <div class="contact-box">
+    <div class="contact-image">
+      <!-- Replace 'your-image.jpg' with your actual image path -->
+    </div>
+    <div class="contact-form">
+      <b style="color:green;">{{msg}}</b>
+      <h2>Contact Us</h2>
+      <form action="/contact" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required pattern="[A-Za-z\s]{3,50}" title="Only letters allowed, 3-50 characters" maxlength="20">
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Contact Number:</label>
+          <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" title="Enter a 10-digit number" maxlength="10">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="message" required maxlength="500" placeholder="Write your message here..." maxlength="300"></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer id="footer">
+  <p>© All Rights Reserved By E-Rakt</p>
+</footer>
+</body>
+</html>

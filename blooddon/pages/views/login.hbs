@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Rakt Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@200&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/layout.css">
+    <style media="screen">
+      *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection{
+  background: #fff;
+  color: #fb8574;
+}
+.em{
+  font-weight: bold !important;
+  color: red !important;
+}
+.header{
+  width: 100%;
+  height: 170px;
+  background: #eb4d4b;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0 0 40px 40px;
+}
+.header h1{
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.header h2{
+  color: #fff !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+.box{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.box h1{
+  color: #282828;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+#i1,#i2,#i3{
+  width: 280px;
+  height: 38px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: sans-serif;
+  font-size: 22px;
+  border-bottom: 1px solid #282828;
+  padding: 4px;
+}
+#i1,#i2,#i3::placeholder{
+  font-size: 18px;
+}
+.nf{
+  width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nf span{
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #282828;
+  font-weight: bold;
+}
+.nf a{
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #282828;
+  font-weight: bold;
+  text-decoration: none;
+}
+#cb{
+  position: relative;
+  top: 2px;
+}
+#log{
+  width: 280px;
+  height: 38px;
+  border: 2px solid #eb4d4b;
+  background: #eb4d4b;
+  border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 5px;
+  cursor: pointer;
+}
+.box span{
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #282828;
+}
+.box a{
+  font-size: 13px !important;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: lowercase !important;
+}
+.circle{
+  width: 100px;
+  height: 40px;
+  border: 3px solid #282828;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nf2{
+  width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.sun{
+  position: relative;
+  left: -5px;
+  top: -2px;
+}
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <h1>E-Rakt</h1>
+      <ul>
+        <li><a href="/"> Home</a></li>
+        <li> <a href="/contactus"> Contact Us</a></li>
+        <li> <a href="/donors"> Donors</a></li>
+          <li><a href="/beadonor"> Be a donor</a></li>
+          <li><a href="/login"> Login</a></li>
+      </ul>
+    </header>
+    <header class="header">
+      <h1>E-Rakt Login</h1>
+      <h2>Donate Blood, Save Lives – Your Contribution Begins Here!</h2>
+    </header>
+    <div class="box">
+      <form class="" action="/login" method="post">
+        <h1>Login</h1><br>
+        <input type="text" name="mail" value="" placeholder="enter your email" id="i1"><br> <p class="em"></p> <br>
+      <!--  <input type="password" name="pass" value="" placeholder="enter your password" id="i2"><br><p class="em"></p><br>
+        <div class="nf">
+          <span><input type="checkbox" name="" value="" id="cb" onclick="showpass()"> Show Password</span>
+          <a href="/newpass">Forget Password?</a>
+        </div>-->
+        <input type="submit" name="" value="Get OTP" id="log"><br>
+        <div class="nf2">
+        <span>don't have an account? </span>&nbsp; <a href="/register" class="sun">sign up now</a>
+        </div>
+      </form>
+
+    </div>
+    <footer id="footer">
+      <p>© All Rights Reserved By E-Rakt</p>
+    </footer>
+    <script>
+      let i2=document.getElementById('i2');
+      function showpass(){
+        if(i2.type==="password"){
+          i2.type="text";
+        }else{
+          i2.type="password";
+        }
+      }
+    </script>
+  </body>
+</html>

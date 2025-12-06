@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Rakt Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@200&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cedarville+Cursive&family=Dancing+Script:wght@400;600&family=Josefin+Sans:wght@300&family=Open+Sans:wght@300&family=Oswald:wght@200&family=Pacifico&family=Permanent+Marker&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/layout.css">
+    <style media="screen">
+      *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection{
+  background: #fff;
+  color: #fb8574;
+}
+.em{
+  font-weight: bold !important;
+  color: red !important;
+}
+nav {
+  background: linear-gradient(90deg, #b71c1c, #d32f2f);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-bottom: 3px solid #880e4f;
+  border-radius: 0 0 15px 15px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px #00000088;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+nav ul li a {
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 16px !important;
+  padding:  10px 10px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  text-transform: capitalize !important;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background: #fff;
+  bottom: 5px;
+  left: 0;
+  transition: 0.4s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.logout {
+  background-color: #ffc107 !important;
+  color: #b71c1c !important;
+  font-weight: bold !important;
+}
+
+.logout:hover {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+
+.box{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.box h1{
+  color: #282828;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+#i1,#i2,#i3{
+  width: 280px;
+  height: 38px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: sans-serif;
+  font-size: 22px;
+  border-bottom: 1px solid #282828;
+  padding: 4px;
+}
+#i1,#i2,#i3::placeholder{
+  font-size: 18px;
+}
+.nf{
+  width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nf span{
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #282828;
+  font-weight: bold;
+}
+.nf a{
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #282828;
+  font-weight: bold;
+  text-decoration: none;
+}
+#cb{
+  position: relative;
+  top: 2px;
+}
+#log{
+  width: 280px;
+  height: 38px;
+  border: 2px solid linear-gradient(90deg, #b71c1c, #d32f2f);
+  background:  linear-gradient(90deg, #b71c1c, #d32f2f);
+  border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 5px;
+  cursor: pointer;
+}
+.box span{
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
+  color: #282828;
+}
+.box a{
+  font-size: 13px !important;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: lowercase !important;
+}
+.circle{
+  width: 100px;
+  height: 40px;
+  border: 3px solid #282828;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nf2{
+  width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.sun{
+  position: relative;
+  left: -5px;
+  top: -2px;
+}
+footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.95rem;
+}
+    </style>
+  </head>
+  <body onload="checkstatus()">
+    <nav>
+      <div class="logo">🩸 E-Rakt</div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/beadonor">Account Settings</a></li>
+        <li><a href="/donors">Donors</a></li>
+        <li><a href="/contactus">Contact Us</a></li>
+      <!--  <li class="ma"><a href="/dashboard">My Account</a></li>-->
+        <li class="login"><a href="/login" class="logout">Login</a></li>
+        <li class="logout1"><a href="/logout" class="logout">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="box">
+      <form class="" action="/login" method="post">
+        <h1>Login</h1><br>
+        <input type="text" name="mail" value="" placeholder="enter your email" id="i1"><br> <p class="em"></p> <br>
+      <!--  <input type="password" name="pass" value="" placeholder="enter your password" id="i2"><br><p class="em"></p><br>
+        <div class="nf">
+          <span><input type="checkbox" name="" value="" id="cb" onclick="showpass()"> Show Password</span>
+          <a href="/newpass">Forget Password?</a>
+        </div>-->
+        <input type="submit" name="" value="Get OTP" id="log"><br>
+        <div class="nf2">
+        <span>don't have an account? </span>&nbsp; <a href="/register" class="sun">sign up now</a>
+        </div>
+      </form>
+
+    </div><p style="color:#fff;" class="ut">{{userstatus}}</p><br><br><br><br><br><br>
+    <footer>
+      &copy; 2025 E-Rakt. All rights reserved. Together, we save lives.
+    </footer>
+    <script>
+      let i2=document.getElementById('i2');
+      function showpass(){
+        if(i2.type==="password"){
+          i2.type="text";
+        }else{
+          i2.type="password";
+        }
+      }
+      let checkstatus=()=>{
+        let str=document.getElementsByClassName('ut')[0].innerHTML;
+        if(str=="loggedin"){
+          //alert("g")
+          document.getElementsByClassName('login')[0].style.display="none";
+          document.getElementsByClassName('logout')[0].style.display="block";
+          document.getElementsByClassName('logout1')[0].style.display="inline";
+        //  document.getElementsByClassName('ma')[0].style.display="block";
+      //    document.getElementsByClassName('ma')[0].style.display="inline";
+        }else{
+        //  alert("j")
+          document.getElementsByClassName('login')[0].style.display="inline block";
+          document.getElementsByClassName('logout1')[0].style.display="none";
+      //    document.getElementsByClassName('ma')[0].style.display="none";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User & Contact Lists</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      text-align: center;
+
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff0;
+      color: #b00;
+      border: 2px solid #b00;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #fff8b3;
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #ffffe0;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    th, td {
+      border: 1px solid #b00;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #b00;
+      color: white;
+    }
+
+    .delete-btn {
+      background-color: #b00;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      background-color: #ff4444;
+    }
+    nav {
+      background: linear-gradient(90deg, #b71c1c, #d32f2f);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #880e4f;
+      border-radius: 0 0 15px 15px;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px #00000088;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      background: #fff;
+      bottom: 5px;
+      left: 0;
+      transition: 0.4s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+    }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+    .logout {
+      background-color: #ffc107;
+      color: #b71c1c;
+      font-weight: bold;
+    }
+
+    .logout:hover {
+      background-color: #ff9800;
+      color: white;
+    }
+    footer {
+      width: 100%;
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.95rem;
+
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">🩸 E-Rakt</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/beadonor">Account Settings</a></li>
+      <li><a href="/donors">Donors</a></li>
+      <li><a href="/contactus">Contact Us</a></li>
+      <!--<li class="ma"><a href="/dashboard">My Account</a></li>-->
+    <!--  <li class="login"><a href="/login" class="logout">Login</a></li>-->
+      <li class="logout1"><a href="/logout" class="logout">Logout</a></li>
+    </ul>
+  </nav><br><br>
+  <h1>User & Contact List Management</h1>
+  <button onclick="toggleTable('userTable')">Show Users</button>
+  <button onclick="toggleTable('contactTable')">Show Contact List</button>
+
+  <table id="userTable" style="display:none">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Contact No</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Emergency Contact</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each user}}
+      <tr>
+        <td>{{this.uname}}</td>
+        <td>{{this.mail}}</td>
+        <td>{{this.con}}</td>
+        <td>{{this.dob}}</td>
+        <td>{{this.gender}}</td>
+        <td>{{this.econ}}</td>
+        <td><button class="delete-btn" onclick="window.open('/deleteuser/{{this.uname}}', '_blank')">Delete</button></td>
+      </tr>{{/each}}
+    </tbody>
+  </table>
+
+  <table id="contactTable" style="display:none">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact No</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each contact}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.contact}}</td>
+        <td>{{this.message}}</td>
+        <td><button class="delete-btn" onclick="window.open('/deletecontact/{{this._id}}', '_blank')">Delete</button></td>
+      </tr>{{/each}}
+    </tbody>
+  </table><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer>
+    &copy; 2025 E-Rakt. All rights reserved. Together, we save lives.
+  </footer>
+  <script>
+    function toggleTable(id) {
+      const table = document.getElementById(id);
+      table.style.display = table.style.display === 'none' ? 'table' : 'none';
+    }
+
+  /*  function deleteRow(btn) {
+      const row = btn.parentElement.parentElement;
+      row.remove();
+    }*/
+  </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+}
+#header{
+  width: 100%;
+  height: 77px;
+  border-bottom: 1px solid #282828;
+  box-shadow: 1px 1px 1px 1px #282828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+.logout{
+  display: none;
+}
+.ma{
+  display: none;
+}
+#header h1{
+  font-family: sans-serif;
+  font-size: 34px;
+  color: #d63031 !important;
+}
+#header ul,li,a{
+  display: inline;
+  padding: 10px;
+  font-size: 18px !important;
+  text-transform:uppercase;
+}
+#header a:hover{
+  transition: 0.5s ease-in;
+  color: #d63031;
+  font-weight: bold;
+}
+.box{
+  width: 100%;
+  height: 600px;
+  display: flex;
+  padding: 3px;
+  position: relative;
+  overflow: hidden;
+  left: -1.4px;
+}
+.b1{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.b1 img{
+  width: 50%;
+  height: 100%;
+}
+.b2{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 9;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px;
+}
+.b2 h1{
+   font-size: 32px;
+   background:#d63031;
+   position: relative;
+   top: -10px;
+}
+.b2 p{
+  font-size: 22px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mediabox{
+  width: 390px;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+/*  position: relative;
+  top: 110px;*/
+}
+.mediabox li,a,.mb li,a{
+  display: inline;
+  text-decoration: none;
+  color: #171e2b;
+  list-style: none;
+  font-size: 20px;
+  padding: 8px;
+}
+.mediabox p,.mb p{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 22px;
+  color: #171e2b;
+}
+.mediabox img,.mb img{
+  width: 29px;
+  height: 30px;
+}
+.mediabox ul,p{
+  padding: 4px;
+}
+.mb ul,p{
+  padding: 4px;
+}
+.mhead{
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.mhead h1{
+  font-size: 32px;
+  text-transform: uppercase;
+}
+.line{
+  width: 240px;
+  height: 3px;
+  background: #d63031;
+  border: 2px solid #d63031;
+}
+.cards{
+  width: 100%;
+  height: auto;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card{
+  width: 350px;
+  height: 300px;
+  border: 1px solid #282828;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #dfe6e9;
+  margin: 20px;
+}
+.card img{
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: relative;
+  top: -10px;
+}
+.card h3{
+  font-size: 18px;
+}
+.card span{
+  color: red;
+}
+.align{
+  width: 100%;
+  height: auto;
+  padding: 2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.card button{width: 80%;
+height: 37px;
+background: red;
+border: 2px solid red;color: #fff;
+font-size: 16px;border-radius: 4px;padding: 4px;cursor: pointer;position: relative;top: 15px;}
+.card button:hover{
+  transition: .5s ease-in;
+  background: black;border: 2px solid black;
+}
+.filters{
+  width: 100%;
+  height: auto;
+  padding: 30px;
+}
+.filter{
+  width: 170px;
+  height: 39px;
+  background: #ff7675;
+  border: 2px solid #ff7675;
+  color: #282828;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+}
+.ff{
+  display: none;
+}
+.filter img{
+  width: 19px;
+  height: 19px;
+  position: relative;
+  top: 1px;
+}
+.filters select{
+  width: 210px;
+  height: 40px;
+  font-size: 16px;
+  font-family: monospace;
+}
+.match{
+  width: 170px;
+  height: 39px;
+  background: #d63031;
+  border: 2px solid #d63031;
+  color: #282828;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+}
+.bg{
+  width: 100%;
+  height: auto;
+  padding: 3px;
+  border: 3px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#footer{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  background: #282828;
+}

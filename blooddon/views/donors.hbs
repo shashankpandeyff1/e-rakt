@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Rakt - Blood Donation Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      user-select: none;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #b71c1c, #d32f2f);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #880e4f;
+      border-radius: 0 0 15px 15px;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px #00000088;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      background: #fff;
+      bottom: 5px;
+      left: 0;
+      transition: 0.4s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    .logout {
+      background-color: #ffc107;
+      color: #b71c1c;
+      font-weight: bold;
+    }
+
+    .logout:hover {
+      background-color: #ff9800;
+      color: white;
+    }
+
+    .slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: slide-show 15s infinite;
+}
+
+.slider img {
+  width: 50%;
+  height: 100%;
+
+}
+
+
+    .intro-section {
+      padding: 50px 20px;
+      text-align: center;
+      background: #fff3e0;
+    }
+
+    .intro-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #c62828;
+    }
+
+    .intro-section p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .filter-section {
+      padding: 50px;
+      background-color: #fce4ec;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .filter-section button{
+      width: 200px !important;
+      height: 39px;
+      cursor: pointer !important;
+      font-size: 16px !important;
+      font-weight: bold !important;
+    }
+
+    .filter-section select {
+      padding: 15px;
+      border: 2px solid #c62828;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .donor-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 40px;
+      padding: 50px;
+      background: #fff;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      padding: 30px;
+      background: linear-gradient(to bottom right, #fff, #fce4ec);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin: 20px 0 10px;
+      color: #c62828;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      margin: 10px 0;
+      font-size: 1.05rem;
+    }
+
+    .card button {
+      background-color: #c62828;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button:hover {
+      background-color: #a4161a;
+    }
+
+    .info-section {
+      background: #fce4ec;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .info-section h2 {
+      color: #c62828;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .info-section ul {
+      list-style-type: disc;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .info-section li {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body onload="checkstatus()">
+  <nav>
+    <div class="logo">🩸 E-Rakt</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/beadonor">Account Settings</a></li>
+      <li><a href="/donors">Donors</a></li>
+      <li><a href="/contactus">Contact Us</a></li>
+  <!--    <li class="ma"><a href="/dashboard">My Account</a></li>-->
+      <li class="login"><a href="/login" class="logout">Login</a></li>
+      <li class="logout1"><a href="/logout" class="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="intro-section">
+    <h2>Find Life-Saving Blood Donors</h2>
+    <p> Easily locate nearby blood donors based on blood group and location. Every second counts—find a donor and save a life today.</p>
+  </section>
+
+  <section class="filter-section">
+    <form class="" action="/filter" method="post">
+    <select name="bg">
+      <option value="">Select Blood Group</option>
+      <option value="A+">A+</option>
+      <option value="A-">A-</option>
+      <option value="B+">B+</option>
+      <option value="B-">B-</option>
+      <option value="AB+">AB+</option>
+      <option value="AB-">AB-</option>
+      <option value="O+">O+</option>
+      <option value="O-">O-</option>
+    </select>
+    <select name="loc">
+
+      <option value="">Select Location</option>{{#each donor}}<option value="{{this.district}}">{{this.district}}</option>{{/each}}
+    <!--  <option value="Delhi">Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Kolkata">Kolkata</option>-->
+    </select>
+    <button type="submit" name="button">Apply Filters</button> <a href="/" class="rf" style="text-decoration:none;">Remove Filters</a>  </form>
+  </section>
+
+  <section class="donor-cards">
+    {{#each donors}}
+    <div class="card">
+      <h3>{{this.full_name}}</h3>
+      <p>Blood Group: {{this.blood_group}}</p>
+      <p>Location: {{this.district}}</p>
+      <button>Send Request</button>
+    </div>{{/each}}
+  <!--  <div class="card">
+      <h3>Jane Smith</h3>
+      <p>Blood Group: B-</p>
+      <p>Location: Mumbai</p>
+      <button>Send Request</button>
+    </div>
+    <div class="card">
+      <h3>Rahul Verma</h3>
+      <p>Blood Group: O+</p>
+      <p>Location: Chennai</p>
+      <button>Send Request</button>
+    </div>-->
+  </section>
+
+
+<p style="color:#fff;" class="ut">{{userstatus}}</p><p style="color:#fff;" class="filter">{{filter}}</p><br><br>
+  <footer>
+    &copy; 2025 E-Rakt. All rights reserved. Together, we save lives.
+  </footer>
+  <script>
+    let checkstatus=()=>{
+      let str=document.getElementsByClassName('ut')[0].innerHTML;
+      if(str=="loggedin"){
+        //alert("g")
+        document.getElementsByClassName('login')[0].style.display="none";
+        document.getElementsByClassName('logout')[0].style.display="block";
+        document.getElementsByClassName('logout1')[0].style.display="inline";
+    //    document.getElementsByClassName('ma')[0].style.display="block";
+      //  document.getElementsByClassName('ma')[0].style.display="inline";
+      }else{
+      //  alert("j")
+        document.getElementsByClassName('login')[0].style.display="inline block";
+        document.getElementsByClassName('logout1')[0].style.display="none";
+    //    document.getElementsByClassName('ma')[0].style.display="none";
+      }
+      let filter=document.getElementsByClassName('filter')[0].innerHTML;
+      if(filter==="applied"){
+        document.getElementsByClassName('rf')[0].style.display="block";
+      }else{
+        document.getElementsByClassName('rf')[0].style.display="none";
+      }
+    }
+  </script>
+</body>
+</html>

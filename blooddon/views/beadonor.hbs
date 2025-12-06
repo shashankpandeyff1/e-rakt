@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donor Info Form</title>
+  <link rel="stylesheet" href="/css/layout.css">
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+    body {
+      font-family: Arial, sans-serif;
+
+    }
+  .main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+
+  }
+  nav {
+    background: linear-gradient(90deg, #b71c1c, #d32f2f);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-bottom: 3px solid #880e4f;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px #00000088;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    top: 10px;
+  }
+  .set{
+    position: relative;
+    top: 8px;
+  }
+  .setl{
+    position: relative;
+    top: -4px;
+  }
+  nav ul li a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 16px !important;
+    padding: 10px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: capitalize !important;
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: #fff;
+    bottom: 5px;
+    left: 0;
+    transition: 0.4s;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+  }
+
+  .logout {
+    background-color: #ffc107;
+    color: #b71c1c;
+    font-weight: bold;
+  }
+
+  .logout:hover {
+    background-color: #ff9800;
+    color: white;
+  }
+
+  .main div{
+    width: 50%;
+    height: 100%;
+  }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 210px !important;
+      padding: 8px;
+      font-size: 14px;
+    }
+textarea{
+  width: 300px !important;
+}
+    .info-display {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 30px;
+      gap:10px;
+    }
+
+    .info-box {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      width: calc(33% - 20px);
+      box-sizing: border-box;
+    }
+
+    .info-box h4 {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .info-box p {
+      margin: 0;
+    }
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.95rem;
+    }
+    .cyd{
+      text-transform: capitalize !important;
+      color: red !important;
+      font-size: 18px !important;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body onload="checkstatus()">
+  <nav>
+    <div class="logo">🩸 E-Rakt</div>
+    <ul>
+      <li><a href="/" class="set">Home</a></li>
+      <li><a href="/beadonor" class="set">Account Settings</a></li>
+      <li><a href="/donors" class="set">Donors</a></li>
+      <li><a href="/contactus" class="set">Contact Us</a></li>
+  <!--    <li class="ma"><a href="/dashboard">My Account</a></li>-->
+      <!--<li class="login"><a href="/login" class="logout">Login</a></li>-->
+      <li class="logout1"><a href="/logout" class="logout setl">Logout</a></li>
+    </ul>
+  </nav>
+<div class="main">
+  <h2>Donor Info Form</h2>
+  <b style="color:green;">{{msg}}</b>
+  <form action="/donorinfo" method="post">
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="full_name" value="{{uname}}">
+
+    <label for="age" >Age:</label>
+    <input type="number" id="age" name="age" value="{{age}}" >
+
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" name="weight">
+
+    <label for="bloodgroup">Blood Group:</label>
+    <select id="bloodgroup" name="blood_group">
+      <option>A+</option>
+      <option>A-</option>
+      <option>B+</option>
+      <option>B-</option>
+      <option>AB+</option>
+      <option>AB-</option>
+      <option>O+</option>
+      <option>O-</option>
+    </select>
+
+    <label for="lastdonation">Last Donation:</label>
+    <input type="date" id="lastdonation" name="last_donation">
+
+    <label for="availabledate">Available Date:</label>
+    <input type="date" id="availabledate" name="available_date">
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label for="district">District:</label>
+    <input type="text" id="district" name="district">
+
+    <label for="note">Note:</label>
+    <textarea id="note" name="notes" rows="3"></textarea>
+
+    <input type="submit" name="" value="Update Info" style="background: linear-gradient(90deg, #b71c1c, #d32f2f);cursor:pointer;color:#fff;">
+
+    <a href="/mydetails" class="cyd">Check your details</a><p  style="color:black;" class="manageapp">{{adminstatus}}</p>
+    <a href="/manageapp" class="manageapplink" style="display:none;">Manage App</a>
+  </form>
+</div>
+
+<!--  <div class="info-display">
+    {{#each data}}
+    <div class="info-box">
+      <h4>Full Name</h4>
+      <p>{{this.full_name}}</p>
+    </div>
+    <div class="info-box">
+      <h4>Age</h4>
+      <p>{{this.age}}</p>
+    </div>
+    <div class="info-box">
+      <h4>Weight</h4>
+      <p>{{this.weight}}</p>
+    </div>
+    <div class="info-box">
+      <h4>Blood Group</h4>
+      <p>{{this.blood_group}}</p>
+    </div>
+    <div class="info-box">
+      <h4>Last Donation</h4>
+      <p>{{this.last_donation}}</p>
+    </div>
+    <div class="info-box">
+      <h4>Available Date</h4>
+      <p>{{this.available_date}}</p>
+    </div>
+    <div class="info-box">
+      <h4>Gender</h4>
+      <p>{{this.gender}}</p>
+    </div>
+    <div class="info-box">
+      <h4>District</h4>
+      <p>{{this.district}}</p>
+    </div>
+    <div class="info-box" style="width: 100%;">
+      <h4>Note</h4>
+      <p>{{this.notes}}</p>
+    </div>
+    {{/each}}
+  </div>-->
+</div>
+<p style="color:#fff;" class="ut">{{userstatus}}</p>
+<footer>
+  &copy; 2025 E-Rakt. All rights reserved. Together, we save lives.
+</footer>
+<script>
+  let checkstatus=()=>{
+    let str=document.getElementsByClassName('ut')[0].innerHTML;
+    let manageapp=document.getElementsByClassName('manageapp')[0].innerHTML;
+    if(str=="loggedin"){
+      //alert("g")
+    //  document.getElementsByClassName('login')[0].style.display="none";
+      document.getElementsByClassName('logout')[0].style.display="block";
+      document.getElementsByClassName('logout1')[0].style.display="inline";
+      //document.getElementsByClassName('ma')[0].style.display="block";
+      //document.getElementsByClassName('ma')[0].style.display="inline";
+    }else{
+    //  alert("j")
+      document.getElementsByClassName('login')[0].style.display="inline block";
+      document.getElementsByClassName('logout1')[0].style.display="none";
+    //  document.getElementsByClassName('ma')[0].style.display="none";
+    }
+    let inp=document.getElementById('fullname').value;
+    if(inp=="shashankadmin123"){
+      document.getElementsByClassName('manageapplink')[0].style.display="block";
+        document.getElementsByClassName('manageapplink')[0].style.opacity="1";
+    }else{
+    document.getElementsByClassName('manageapplink')[0].style.display="mone";
+      document.getElementsByClassName('manageapplink')[0].style.opacity="0";
+    }
+  }
+</script>
+</body>
+</html>
